@@ -58,10 +58,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  .LoginPage {
-    background-color: #E0CBB8;
-    #logo {
-      width: 90px;
-    }
+  #logo {
+    width: 90px;
   }
 </style>
