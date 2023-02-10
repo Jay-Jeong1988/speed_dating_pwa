@@ -1,0 +1,32 @@
+[
+    {
+        "id": 0,
+        "date": "Mon, Feb 2, 2023",
+        "time": "14:00",
+        "branch": "세종점",
+        "party_size": 20,
+        "price": 100000,
+        "attendees": [],
+        "isOver": true
+    },
+    {
+        "id": 0,
+        "date": "Mon, Feb 2, 2023",
+        "time": "14:00",
+        "branch": "부산점",
+        "party_size": 20,
+        "price": 100000,
+        "attendees": [],
+        "isOver": false
+    },
+    {
+        "id": 0,
+        "date": "Mon, Feb 2, 2023",
+        "time": "14:00",
+        "branch": "강남점",
+        "party_size": 20,
+        "price": 100000,
+        "attendees": [],
+        "isOver": false
+    }
+]
