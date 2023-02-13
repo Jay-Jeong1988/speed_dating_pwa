@@ -23,18 +23,17 @@
       <ul class="participants-list">
         <li class="participants-list-item" v-for="participant in participants" :key="participant.id">
           <p>{{ participant.name }}</p>
-          <div class="radio">
-            <input type="radio" :id="'lover'+participant.id" :name="participant.name" value="HTML" />
-            <label :for="'lover'+participant.id" class="radio-label"></label>
-          </div>
-          <div class="radio">
-            <input type="radio" :id="'friend'+participant.id" :name="participant.name" value="HTML" />
-            <label :for="'friend'+participant.id" class="radio-label"></label>
-          </div>
-          <div class="radio">
-            <input type="radio" :id="'notInterested'+participant.id" :name="participant.name" value="HTML" />
-            <label :for="'notInterested'+participant.id" class="radio-label"></label>
-          </div>
+          <label class="container">
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+          <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+          <span class="checkmark"></span>
         </li>
       </ul>
     </div>
@@ -120,66 +119,87 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    .custom-radio {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+    }
   }
 }
 
 /* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
-.radio {
-  margin: 0.5rem;
-  input[type="radio"] {
-    position: absolute;
-    opacity: 0;
-    + .radio-label {
-      &:before {
-        content: '';
-        background: transparent;
-        border-radius: 100%;
-        border: 1px solid #fff;
-        display: inline-block;
-        width: 1.4em;
-        height: 1.4em;
-        position: relative;
-        top: -0.2em;
-        margin-right: 1em; 
-        vertical-align: top;
-        cursor: pointer;
-        text-align: center;
-        transition: all 250ms ease;
-      }
-    }
-    &:checked {
-      + .radio-label {
-        &:before {
-          background-color: #fff;
-          box-shadow: inset 0 0 0 4px #E0CBB8;
-        }
-      }
-    }
-    &:focus {
-      + .radio-label {
-        &:before {
-          outline: none;
-          border-color: #fff;
-        }
-      }
-    }
-    &:disabled {
-      + .radio-label {
-        &:before {
-          box-shadow: inset 0 0 0 4px #fff;
-          border-color: darken(#fff, 25%);
-          background: darken(#fff, 25%);
-        }
-      }
-    }
-    + .radio-label {
-      &:empty {
-        &:before {
-          margin-right: 0;
-        }
-      }
-    }
-  }
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked~.checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
 }
 </style>

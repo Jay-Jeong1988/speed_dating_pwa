@@ -152,7 +152,7 @@ export default {
       + .radio-label {
         &:before {
           background-color: #fff;
-          box-shadow: inset 0 0 0 4px #E0CBB8;
+          box-shadow: inset 0 0 0 4px #fff;
         }
       }
     }

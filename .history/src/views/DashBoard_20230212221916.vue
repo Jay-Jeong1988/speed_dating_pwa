@@ -1,6 +1,6 @@
 <template>
     <div class="DashBoard">
-      <Header :headerTitle="this.headerTitle"></Header>
+      <Header></Header>
       <div class="menuContainer">
         <ul class="menus">
             <li ><router-link to="/booked_events"><img src="../assets/images/booked_events.svg"/>예약조회</router-link></li>
@@ -18,11 +18,11 @@
   export default {
     name: 'DashBoard',
     props: {
+      h
       msg: String
     },
     data() {
       return {
-        headerTitle: "마이페이지",
       }
     },
     methods: {

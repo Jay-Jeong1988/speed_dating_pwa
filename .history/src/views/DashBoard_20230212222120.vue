@@ -22,7 +22,6 @@
     },
     data() {
       return {
-        headerTitle: "마이페이지",
       }
     },
     methods: {

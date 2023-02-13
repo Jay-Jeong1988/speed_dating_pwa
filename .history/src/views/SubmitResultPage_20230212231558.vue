@@ -23,17 +23,29 @@
       <ul class="participants-list">
         <li class="participants-list-item" v-for="participant in participants" :key="participant.id">
           <p>{{ participant.name }}</p>
+          <!-- <label class="container">
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <span class="checkmark"></span>
+          </label> -->
           <div class="radio">
-            <input type="radio" :id="'lover'+participant.id" :name="participant.name" value="HTML" />
-            <label :for="'lover'+participant.id" class="radio-label"></label>
+            <input type="radio" :id="" :name="participant.name" value="HTML" />
+            <label :for="" class="radio-label"></label>
           </div>
           <div class="radio">
-            <input type="radio" :id="'friend'+participant.id" :name="participant.name" value="HTML" />
-            <label :for="'friend'+participant.id" class="radio-label"></label>
+            <input type="radio" :id="" :name="participant.name" value="HTML" />
+            <label :for="" class="radio-label"></label>
           </div>
           <div class="radio">
-            <input type="radio" :id="'notInterested'+participant.id" :name="participant.name" value="HTML" />
-            <label :for="'notInterested'+participant.id" class="radio-label"></label>
+            <input type="radio" :id="" :name="participant.name" value="HTML" />
+            <label :for="" class="radio-label"></label>
           </div>
         </li>
       </ul>
@@ -133,9 +145,9 @@ export default {
     + .radio-label {
       &:before {
         content: '';
-        background: transparent;
+        background: #fff;
         border-radius: 100%;
-        border: 1px solid #fff;
+        border: 1px solid darken(#fff, 25%);
         display: inline-block;
         width: 1.4em;
         height: 1.4em;
@@ -151,8 +163,8 @@ export default {
     &:checked {
       + .radio-label {
         &:before {
-          background-color: #fff;
-          box-shadow: inset 0 0 0 4px #E0CBB8;
+          background-color: #853B3B;
+          box-shadow: inset 0 0 0 4px #fff;
         }
       }
     }
@@ -160,7 +172,7 @@ export default {
       + .radio-label {
         &:before {
           outline: none;
-          border-color: #fff;
+          border-color: #853B3B;
         }
       }
     }

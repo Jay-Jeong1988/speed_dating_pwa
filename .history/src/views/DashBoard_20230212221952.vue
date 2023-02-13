@@ -18,11 +18,11 @@
   export default {
     name: 'DashBoard',
     props: {
+      headerTitle: "마이페이지",
       msg: String
     },
     data() {
       return {
-        headerTitle: "마이페이지",
       }
     },
     methods: {

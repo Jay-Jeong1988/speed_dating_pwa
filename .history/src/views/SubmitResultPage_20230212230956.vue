@@ -23,17 +23,29 @@
       <ul class="participants-list">
         <li class="participants-list-item" v-for="participant in participants" :key="participant.id">
           <p>{{ participant.name }}</p>
+          <!-- <label class="container">
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container">
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <span class="checkmark"></span>
+          </label> -->
           <div class="radio">
-            <input type="radio" :id="'lover'+participant.id" :name="participant.name" value="HTML" />
-            <label :for="'lover'+participant.id" class="radio-label"></label>
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <label :for="participant.id" class="radio-label"></label>
           </div>
           <div class="radio">
-            <input type="radio" :id="'friend'+participant.id" :name="participant.name" value="HTML" />
-            <label :for="'friend'+participant.id" class="radio-label"></label>
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <label :for="participant.id" class="radio-label"></label>
           </div>
           <div class="radio">
-            <input type="radio" :id="'notInterested'+participant.id" :name="participant.name" value="HTML" />
-            <label :for="'notInterested'+participant.id" class="radio-label"></label>
+            <input type="radio" :id="participant.id" :name="participant.name" value="HTML" />
+            <label :for="participant.id" class="radio-label"></label>
           </div>
         </li>
       </ul>
@@ -124,7 +136,75 @@ export default {
 }
 
 /* The container */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 1px solid #fff;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input~.checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked~.checkmark {
+  background-color: #fff;
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
 .radio {
   margin: 0.5rem;
   input[type="radio"] {
@@ -133,9 +213,9 @@ export default {
     + .radio-label {
       &:before {
         content: '';
-        background: transparent;
+        background: #fff;
         border-radius: 100%;
-        border: 1px solid #fff;
+        border: 1px solid darken(#fff, 25%);
         display: inline-block;
         width: 1.4em;
         height: 1.4em;
@@ -151,8 +231,8 @@ export default {
     &:checked {
       + .radio-label {
         &:before {
-          background-color: #fff;
-          box-shadow: inset 0 0 0 4px #E0CBB8;
+          background-color: #853B3B;
+          box-shadow: inset 0 0 0 4px #fff;
         }
       }
     }
@@ -160,7 +240,7 @@ export default {
       + .radio-label {
         &:before {
           outline: none;
-          border-color: #fff;
+          border-color: #853B3B;
         }
       }
     }
@@ -169,7 +249,7 @@ export default {
         &:before {
           box-shadow: inset 0 0 0 4px #fff;
           border-color: darken(#fff, 25%);
-          background: darken(#fff, 25%);
+          background: darken($color1, 25%);
         }
       }
     }

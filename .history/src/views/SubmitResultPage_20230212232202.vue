@@ -135,7 +135,7 @@ export default {
         content: '';
         background: transparent;
         border-radius: 100%;
-        border: 1px solid #fff;
+        border: 1px solid darken(#fff, 25%);
         display: inline-block;
         width: 1.4em;
         height: 1.4em;
@@ -151,8 +151,8 @@ export default {
     &:checked {
       + .radio-label {
         &:before {
-          background-color: #fff;
-          box-shadow: inset 0 0 0 4px #E0CBB8;
+          background-color: #853B3B;
+          box-shadow: inset 0 0 0 4px #fff;
         }
       }
     }
@@ -160,7 +160,7 @@ export default {
       + .radio-label {
         &:before {
           outline: none;
-          border-color: #fff;
+          border-color: #853B3B;
         }
       }
     }

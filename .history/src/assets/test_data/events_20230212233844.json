@@ -18,8 +18,7 @@
         "party_size": 20,
         "price": 100000,
         "attendees": [],
-        "isOver": false,
-        "event_type": "3040"
+        "isOver": false
     },
     {
         "id": 0,
@@ -29,7 +28,6 @@
         "party_size": 20,
         "price": 100000,
         "attendees": [],
-        "isOver": false,
-        "event_type": "4050"
+        "isOver": false
     }
 ]
